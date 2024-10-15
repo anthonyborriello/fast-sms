@@ -19,8 +19,50 @@ To use this script, you need:
 
 1. Clone this repository or download the script file directly.
 
+   To clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/FastSMS.git
    cd FastSMS
-   or
+   ```
+
+   Or, to download the script directly using `wget`:
+
+   ```bash
    wget https://github.com/yourusername/FastSMS/raw/main/send_sms_log.sh
+   ```
+
+2. Make the script executable:
+
+   ```bash
+   chmod +x send_sms_log.sh
+   ```
+
+3. Edit the `gammurc` file (usually located at `/etc/gammurc`) to ensure it points to the correct tty device:
+
+   ```
+   device = /dev/ttyUSB0
+   ```
+
+## Usage
+
+Run the script using the following command:
+
+```bash
+./send_sms_log.sh
+```
+
+Follow the prompts to enter the message text and the destination phone number.
+
+## Logging
+
+All sent messages and their details will be logged in a file named `sms_log.txt` located in your home directory.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Antonio Borriello  
+[antonioborriello.wordpress.com](https://antonioborriello.wordpress.com)
