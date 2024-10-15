@@ -38,7 +38,7 @@ To use this script, you need:
    chmod +x fastsms.sh
    ```
 
-3. Edit the `gammurc` file (usually located at `/etc/gammurc`) to ensure it points to the correct tty device:
+3. (Recommended) Usually the SMS port is ttyUSB0, so write the `gammurc` file (in `/etc/gammurc`) to ensure it points to the correct tty device:
 
    ```
    device = /dev/ttyUSB0
