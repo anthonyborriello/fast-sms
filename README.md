@@ -22,3 +22,5 @@ To use this script, you need:
    ```bash
    git clone https://github.com/yourusername/FastSMS.git
    cd FastSMS
+   or
+   wget https://github.com/yourusername/FastSMS/raw/main/send_sms_log.sh
