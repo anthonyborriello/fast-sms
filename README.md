@@ -12,7 +12,7 @@ A Bash script to send SMS messages using Gammu. This script allows users to quic
 
 To use this script, you need:
 - A modem connected to your system.
-- [Gammu](https://wammu.eu/gammu/) installed on your system. (e.g., sudo apt install gammu)
+- [Gammu](https://wammu.eu/gammu/) installed on your system. (e.g., `sudo apt install gammu`)
 - Proper configuration of Gammu to use the correct tty device (e.g., `/dev/ttyUSB0`).
 
 ## Installation
@@ -23,8 +23,8 @@ To use this script, you need:
 
    ```bash
    git clone https://github.com/anthonyborriello/fast-sms.git
-   cd FastSMS
-   ```
+   cd fast-sms
+    ```
 
    Or, to download the script directly using `wget`:
 
