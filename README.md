@@ -38,10 +38,22 @@ To use this script, you need:
    chmod +x fastsms.sh
    ```
 
-3. (Recommended) Usually the SMS port is ttyUSB0, so write the `gammurc` file (in `/etc/gammurc`) to ensure it points to the correct tty device:
+3. (Recommended) This command will help identify the appropriate device port (e.g., /dev/ttyUSB0, /dev/ttyUSB1)  
+or (/dev/ttyHS0 for GSM modules like Waveshare).  
+Once identified, create or edit the gammurc file (usually located at /etc/gammurc) to ensure it points to the correct tty device:
 
    ```
+   sudo gammu-detect
+   ```
+   
+   ```
+   sudo nano /etc/gammurc
+   ```
+
+   ```
+   [gammu]
    device = /dev/ttyUSB0
+   connection = at
    ```
 
 ## Usage
@@ -51,12 +63,17 @@ Run the script using the following command:
 ```bash
 ./fastsms.sh
 ```
+or
+
+```bash
+bash fastsms.sh
+```
 
 Follow the prompts to enter the message text and the destination phone number.
 
 ## Logging
 
-All sent messages and their details will be logged in a file named `sms_log.txt` located in your home directory.
+All sent messages and their details will be logged in a file named `sms_log.txt` located in the same directory of fastsms.sh
 
 ## License
 
