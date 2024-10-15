@@ -54,7 +54,7 @@ than select you modem (e.g., m 0)
    ```
    sudo mmcli -m 0
    ```
-Write your gammu file
+Write your gammu file:
    ```
    [gammu]
    device = /dev/ttyUSB0
