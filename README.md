@@ -38,10 +38,10 @@ To use this script, you need:
    chmod +x fastsms.sh
    ```
 
-3. Edit the `gammurc` file (usually located at `/etc/gammurc`) to ensure it points to the correct tty device:
+3. (Recommended) Create a configuration file for Gammu. To speed up the script's execution, it is recommended to create a file named gammurc in the /etc directory. You can do this using the following command:
 
-   ```
-   device = /dev/ttyUSB0
+   ```bash
+  sudo nano /etc/gammurc
    ```
 
 ## Usage
