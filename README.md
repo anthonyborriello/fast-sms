@@ -29,13 +29,13 @@ To use this script, you need:
    Or, to download the script directly using `wget`:
 
    ```bash
-   wget https://github.com/yourusername/FastSMS/raw/main/send_sms_log.sh
+   wget https://github.com/yourusername/FastSMS/raw/main/fastsms.sh
    ```
 
 2. Make the script executable:
 
    ```bash
-   chmod +x send_sms_log.sh
+   chmod +x fastsms.sh
    ```
 
 3. Edit the `gammurc` file (usually located at `/etc/gammurc`) to ensure it points to the correct tty device:
@@ -49,7 +49,7 @@ To use this script, you need:
 Run the script using the following command:
 
 ```bash
-./send_sms_log.sh
+./fastsms.sh
 ```
 
 Follow the prompts to enter the message text and the destination phone number.
