@@ -42,14 +42,19 @@ To use this script, you need:
 or (/dev/ttyHS0 for GSM modules like Waveshare).  
 Once identified, create or edit the gammurc file (usually located at /etc/gammurc) to ensure it points to the correct tty device:
 
+For USB modems:
    ```
    sudo gammu-detect
    ```
-   
+For GSM modules:   
    ```
-   sudo nano /etc/gammurc
+   sudo mmcli -L
    ```
-
+than select you modem (e.g., m 0)
+   ```
+   sudo mmcli -m 0
+   ```
+Write your gammu file
    ```
    [gammu]
    device = /dev/ttyUSB0
