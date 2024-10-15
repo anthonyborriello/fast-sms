@@ -39,28 +39,33 @@ To use this script, you need:
    ```
 
 3. (Recommended) This command will help identify the appropriate device port (e.g., /dev/ttyUSB0, /dev/ttyUSB1)  
-or (/dev/ttyHS0 for GSM modules like Waveshare).  
+or (/dev/ttyHS0 for GSM modules and ttyS0 for Waveshare GSM HAT).  
 Once identified, create or edit the gammurc file (usually located at /etc/gammurc) to ensure it points to the correct tty device:
 
-For USB modems:
+   For USB modems:
    ```
    sudo gammu-detect
    ```
-For GSM modules:   
+   For GSM modules:   
    ```
    sudo mmcli -L
    ```
-than select you modem (e.g., m 0)
+   Select you modem (e.g., m 0)
    ```
    sudo mmcli -m 0
    ```
-Write your gammu file:
+   Detect the right tty port (e.g., ttyHS0, ttyHS2 or ttyS0), than write your gammu file:
    ```
    [gammu]
    device = /dev/ttyUSB0
    connection = at
    ```
-
+   or in case of GSM modules (ttyHS0, ttyHS2 or ttyS0 for Waveshare GSM HAT)
+   ```
+   [gammu]
+   device = /dev/ttyHS2
+   connection = at
+   ```
 ## Usage
 
 Run the script using the following command:
