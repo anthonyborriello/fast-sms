@@ -22,14 +22,14 @@ To use this script, you need:
    To clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/fast-sms.git
+   git clone https://github.com/anthonyborriello/fast-sms.git
    cd FastSMS
    ```
 
    Or, to download the script directly using `wget`:
 
    ```bash
-   wget https://github.com/yourusername/fast-sms/raw/main/fastsms.sh
+   wget https://github.com/anthonyborriello/fast-sms/raw/main/fastsms.sh
    ```
 
 2. Make the script executable:
