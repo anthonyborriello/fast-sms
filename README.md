@@ -81,5 +81,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Author
 
-Antonio Borriello  
-[antonioborriello.wordpress.com](https://antonioborriello.wordpress.com)
+Antonio Borriello [antonioborriello.wordpress.com](https://antonioborriello.wordpress.com)
