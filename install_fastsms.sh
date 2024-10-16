@@ -61,13 +61,13 @@ check_modem() {
 configure_gammu() {
     echo "Configuring Gammu..."
 
-    # Detect if a specific modem model is present
-    if echo "$modem_info" | grep -q "GTM382"; then
-        device="/dev/ttyHS2"
-        echo "GTM382 modem found. Using $device."
-    elif echo "$modem_info" | grep -q -e "E3531" -e "MF627" -e "K3765" -e "MF110" -e "MF636"; then
+    # Detect supported modems first
+    if echo "$modem_info" | grep -q -e "E3531" -e "MF627" -e "K3765" -e "MF110" -e "MF636"; then
         device="/dev/ttyUSB0"
         echo "Supported modem found. Using $device."
+    elif echo "$modem_info" | grep -q "GTM382"; then
+        device="/dev/ttyHS2"
+        echo "GTM382 modem found. Using $device."
     else
         # Check other available ports in /dev
         if [[ -e /dev/ttyS0 ]]; then
