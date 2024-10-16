@@ -54,7 +54,7 @@ Once identified, create or edit the gammurc file (usually located at /etc/gammur
    ```
    sudo mmcli -m 0
    ```
-   Detect the right tty port (e.g., ttyHS0, ttyHS2 or ttyS0), than write your gammu file:
+   Detect the right tty port (e.g., ttyHS0, ttyHS2 or ttyS0), than write your gammu file: (e.g., `sudo nano /etc/gammurc`)
    ```
    [gammu]
    device = /dev/ttyUSB0
