@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Fast SMS Installer and Configurator
+# Fast SMS Installer and Configurator (Powered by Gammu and ModemManager)
 
 SCRIPT_URL="https://github.com/anthonyborriello/fast-sms/raw/main/fastsms.sh"
 SCRIPT_NAME="fastsms.sh"
@@ -109,8 +109,8 @@ download_script
 echo "Installation and configuration completed. You can now run the script with:"
 echo "./$SCRIPT_NAME"
 echo
-echo "IMPORTANT: The file /etc/gammurc is crucial for Gammu's functionality. If Gammu does not work as expected,"
-echo "please edit /etc/gammurc and ensure the 'device' parameter matches the correct tty port for your modem."
-echo "For example, if the default /dev/ttyUSB0 does not work, try changing it to /dev/ttyS0 or /dev/ttyHS2."
-echo "You can modify the file using the following command:"
-echo "sudo nano /etc/gammurc"
+echo -e "\033[32mIMPORTANT: The file /etc/gammurc is crucial for Gammu's functionality. If Gammu does not work as expected,\033[0m"
+echo -e "\033[32mplease edit /etc/gammurc and ensure the 'device' parameter matches the correct tty port for your modem.\033[0m"
+echo -e "\033[32mFor example, if the default /dev/ttyUSB0 does not work, try changing it to /dev/ttyS0 or /dev/ttyHS2.\033[0m"
+echo -e "\033[32mYou can modify the file using the following command:\033[0m"
+echo -e "\033[32msudo nano /etc/gammurc\033[0m"
