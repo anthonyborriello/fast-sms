@@ -69,17 +69,8 @@ configure_gammu() {
         device="/dev/ttyHS2"
         echo "GTM382 modem found. Using $device."
     else
-        # Check other available ports in /dev
-        if [[ -e /dev/ttyS0 ]]; then
-            device="/dev/ttyS0"
-            echo "Using /dev/ttyS0 as the modem port."
-        elif [[ -e /dev/ttyHS2 ]]; then
-            device="/dev/ttyHS2"
-            echo "Using /dev/ttyHS2 as the modem port."
-        else
-            device="/dev/ttyUSB0"
-            echo "Defaulting to /dev/ttyUSB0 as the modem port."
-        fi
+        device="/dev/ttyUSB0"
+        echo "No supported modem found. Defaulting to $device."
     fi
 
     # Write to the gammurc file
