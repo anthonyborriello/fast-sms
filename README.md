@@ -11,61 +11,18 @@ A Bash script to send SMS messages using Gammu. This script allows users to quic
 ## Prerequisites
 
 To use this script, you need:
-- A USB modem connected to your system (e.g., Huawei E-3531, ZTE MF-627, Huawei K3765, or Huawei E392 for LTE).
+- A USB modem or a GSM module connected to your system (e.g., Huawei E-3531, ZTE MF-627, Huawei K3765, or Huawei E392 for LTE).
 - [Gammu](https://wammu.eu/gammu/) installed on your system. (e.g., `sudo apt install gammu`)
-- Proper configuration of Gammu to use the correct tty device (e.g., `/dev/ttyUSB0`).
+- The install script will automatically detect if Gammu and ModemManager are installed, and if not, it will install them for you.  
+It will also check for connected modems and configure Gammu accordingly. You can modify the Gammu configuration file later by doing: `sudo nano /etc/gammurc`.
 
 ## Installation
 
-1. Clone this repository or download the script file directly.
+To install the script, run the following command:
 
-   To clone the repository:
-
-   ```bash
-   git clone https://github.com/anthonyborriello/fast-sms.git
-   cd fast-sms
-    ```
-
-   Or, to download the script directly using `wget`:
-
-   ```bash
-   wget https://github.com/anthonyborriello/fast-sms/raw/main/fastsms.sh
-   ```
-
-2. Make the script executable:
-
-   ```bash
-   chmod +x fastsms.sh
-   ```
-
-3. (Recommended) This command will help identify the appropriate device port (e.g., /dev/ttyUSB0, /dev/ttyUSB1)  
-or (/dev/ttyHS0 for GSM modules and ttyS0 for Waveshare GSM HAT).  
-Once identified, create or edit the gammurc file (usually located at /etc/gammurc) to ensure it points to the correct tty device:
-
-   For USB modems:
-   ```
-   sudo gammu-detect
-   ```
-   For GSM modules:   
-   ```
-   sudo mmcli -L
-   ```
-   Select you modem (e.g., m 0)
-   ```
-   sudo mmcli -m 0
-   ```
-   Detect the right tty port (e.g., ttyHS0, ttyHS2 or ttyS0), than write your gammu file: (e.g., `sudo nano /etc/gammurc`)
-   ```
-   [gammu]
-   device = /dev/ttyUSB0
-   connection = at
-   ```
-   or in case of GSM modules (ttyHS0, ttyHS2 or ttyS0 for Waveshare GSM HAT)
-   ```
-   [gammu]
-   device = /dev/ttyHS2
-   connection = at
-   ```
+```bash
+sudo bash -c "$(wget -O - https://github.com/anthonyborriello/fast-sms/raw/main/install_fastsms.sh)"
+```
 ## Usage
 
 Run the script using the following command:
