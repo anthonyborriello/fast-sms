@@ -13,7 +13,8 @@ A Bash script to send SMS messages using Gammu. This script allows users to quic
 To use this script, you need:
 - A USB modem or a GSM module connected to your system (e.g., Huawei E-3531, ZTE MF-627, Huawei K3765, or Huawei E392 for LTE).
 - [Gammu](https://wammu.eu/gammu/) installed on your system. (e.g., `sudo apt install gammu`)
-- The install script will automatically detect if Gammu and ModemManager are installed, and if not, it will install them for you.  
+- Modem Manager installed
+- The install script will automatically detect if Gammu and Modem Manager are installed, and if not, it will install them for you.  
 It will also check for connected modems and configure Gammu accordingly. You can modify the Gammu configuration file later by doing: `sudo nano /etc/gammurc`.
 
 ## Installation
