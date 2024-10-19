@@ -43,6 +43,18 @@ Follow the prompts to enter the message text and the destination phone number.
 
 All sent messages and their details will be logged in a file named `sms_log.txt` located in the same directory of fastsms.sh
 
+## Read and delete received SMS
+
+Use Gammu commands
+
+```bash
+sudo gammu getallsms
+```
+```bash
+sudo gammu deleteallsms
+```
+
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
