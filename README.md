@@ -50,8 +50,10 @@ Use Gammu commands
 ```bash
 sudo gammu getallsms
 ```
+The SMS messages are stored in specific folders from `1 to 3`; it depends on the device.
+
 ```bash
-sudo gammu deleteallsms
+sudo gammu deleteallsms 1 
 ```
 
 
