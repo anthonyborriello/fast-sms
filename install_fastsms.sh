@@ -2,8 +2,10 @@
 
 # Fast SMS Installer and Configurator (Powered by Gammu and ModemManager)
 
-SCRIPT_URL="https://github.com/anthonyborriello/fast-sms/raw/main/fastsms.sh"
-SCRIPT_NAME="fastsms.sh"
+FASTSMS_URL="https://github.com/anthonyborriello/fast-sms/raw/main/fastsms.sh"
+SMS_TEST_URL="https://github.com/anthonyborriello/fast-sms/raw/main/sms_test.sh"
+FASTSMS_NAME="fastsms.sh"
+SMS_TEST_NAME="sms_test.sh"
 GAMMU_CONFIG="/etc/gammurc"
 
 # Function to check if a command exists
@@ -29,16 +31,29 @@ install_package() {
     fi
 }
 
-# Function to download the Fast SMS script
-download_script() {
+# Function to download scripts
+download_scripts() {
+    # Download Fast SMS script
     echo "Downloading Fast SMS script..."
-    wget -O "$SCRIPT_NAME" "$SCRIPT_URL"
+    wget -O "$FASTSMS_NAME" "$FASTSMS_URL"
     if [ $? -eq 0 ]; then
-        echo "Script downloaded successfully as $SCRIPT_NAME."
-        chmod +x "$SCRIPT_NAME"
+        echo "Script downloaded successfully as $FASTSMS_NAME."
+        chmod +x "$FASTSMS_NAME"
         echo "Script is now executable."
     else
-        echo "Failed to download the script. Please check your internet connection or the URL."
+        echo "Failed to download Fast SMS script. Please check your internet connection or the URL."
+        exit 1
+    fi
+
+    # Download SMS test script
+    echo "Downloading SMS Test script..."
+    wget -O "$SMS_TEST_NAME" "$SMS_TEST_URL"
+    if [ $? -eq 0 ]; then
+        echo "Script downloaded successfully as $SMS_TEST_NAME."
+        chmod +x "$SMS_TEST_NAME"
+        echo "SMS Test script is now executable."
+    else
+        echo "Failed to download SMS Test script. Please check your internet connection or the URL."
         exit 1
     fi
 }
@@ -98,10 +113,11 @@ else
     exit 1
 fi
 
-download_script
+download_scripts
 
-echo "Installation and configuration completed. You can now run the script with:"
-echo "./$SCRIPT_NAME"
+echo "Installation and configuration completed. You can now run the scripts with:"
+echo "./$FASTSMS_NAME"
+echo "./$SMS_TEST_NAME"
 echo
 echo -e "\033[32mIMPORTANT: The file /etc/gammurc is crucial for Gammu's functionality. If Gammu does not work as expected,\033[0m"
 echo -e "\033[32mplease edit /etc/gammurc and ensure the 'device' parameter matches the correct tty port for your modem.\033[0m"
