@@ -117,7 +117,7 @@ download_scripts
 
 echo "Installation and configuration completed. You can now run the scripts with:"
 echo "./$FASTSMS_NAME"
-echo "./$SMS_TEST_NAME"
+echo "./$SMS_TEST_NAME" <phone number>
 echo
 echo -e "\033[32mIMPORTANT: The file /etc/gammurc is crucial for Gammu's functionality. If Gammu does not work as expected,\033[0m"
 echo -e "\033[32mplease edit /etc/gammurc and ensure the 'device' parameter matches the correct tty port for your modem.\033[0m"
