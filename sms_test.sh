@@ -43,7 +43,7 @@ PHONE_NUMBER=$1
 MESSAGE="This is a test SMS sent using Gammu."
 
 # Send the SMS
-gammu sendsms TEXT "$PHONE_NUMBER" -text "$MESSAGE"
+sudo gammu sendsms TEXT "$PHONE_NUMBER" -text "$MESSAGE"
 
 # Check if the message was sent successfully
 if [ $? -eq 0 ]; then
