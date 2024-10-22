@@ -56,6 +56,14 @@ The SMS messages are stored in specific folders from `1 to 3`; it depends on the
 sudo gammu deleteallsms 1 
 ```
 
+## Test script
+
+`sms_test.sh` can be used to quickly test Gammu.  
+Usage:
+
+```bash
+./smstest.sh +390123456789 
+```
 
 ## License
 
