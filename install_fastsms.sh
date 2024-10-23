@@ -31,6 +31,22 @@ install_package() {
     fi
 }
 
+# Check if Gammu is installed
+if command_exists gammu; then
+    echo "Gammu is already installed."
+else
+    echo "Gammu is not installed. Installing..."
+    install_package "gammu"
+fi
+
+# Check if ModemManager is installed
+if command_exists ModemManager; then
+    echo "ModemManager is already installed."
+else
+    echo "ModemManager is not installed. Installing..."
+    install_package "modemmanager"  # Install the package in lowercase
+fi
+
 # Function to download scripts
 download_scripts() {
     # Download Fast SMS script
@@ -45,7 +61,7 @@ download_scripts() {
         exit 1
     fi
 
-    # Download SMS test script
+    # Download SMS Test script
     echo "Downloading SMS Test script..."
     wget -O "$SMS_TEST_NAME" "$SMS_TEST_URL"
     if [ $? -eq 0 ]; then
@@ -103,9 +119,6 @@ EOL
 }
 
 # Main execution
-install_package "gammu"
-install_package "modemmanager"
-
 if check_modem; then
     configure_gammu
 else
