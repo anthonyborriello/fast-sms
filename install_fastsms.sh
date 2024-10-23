@@ -104,7 +104,7 @@ EOL
 
 # Main execution
 install_package "gammu"
-install_package "ModemManager"
+install_package "modemmanager"
 
 if check_modem; then
     configure_gammu
