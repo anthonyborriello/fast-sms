@@ -31,21 +31,11 @@ install_package() {
     fi
 }
 
-# Check if Gammu is installed
-if command_exists gammu; then
-    echo "Gammu is already installed."
-else
-    echo "Gammu is not installed. Installing..."
-    install_package "gammu"
-fi
+# Install Gammu if not installed
+install_package "gammu"
 
-# Check if ModemManager is installed
-if command_exists ModemManager; then
-    echo "ModemManager is already installed."
-else
-    echo "ModemManager is not installed. Installing..."
-    install_package "modemmanager"  # Install the package in lowercase
-fi
+# Install ModemManager if not installed
+install_package "modemmanager"
 
 # Function to download scripts
 download_scripts() {
