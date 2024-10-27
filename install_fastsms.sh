@@ -33,7 +33,7 @@ install_package() {
 
 # Check for ModemManager and install if not present
 if ! command_exists "ModemManager"; then
-    install_package "modemmanager"  # Install the correct package name
+    install_package "modemmanager"
 else
     echo "ModemManager is already installed."
 fi
