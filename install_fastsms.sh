@@ -35,7 +35,7 @@ install_package() {
 if ! command_exists "ModemManager"; then
     install_package "modemmanager"
 else
-    echo "ModemManager is already installed."
+    echo "modemmanager is already installed."
 fi
 
 # Install Gammu if not installed
