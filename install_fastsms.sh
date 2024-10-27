@@ -31,11 +31,15 @@ install_package() {
     fi
 }
 
+# Check for ModemManager and install if not present
+if ! command_exists "ModemManager"; then
+    install_package "modemmanager"  # Install the correct package name
+else
+    echo "ModemManager is already installed."
+fi
+
 # Install Gammu if not installed
 install_package "gammu"
-
-# Install ModemManager if not installed
-install_package "modemmanager"
 
 # Function to download scripts
 download_scripts() {
