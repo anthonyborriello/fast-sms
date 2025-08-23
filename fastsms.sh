@@ -37,11 +37,12 @@ get_iccid_and_operator() {
     for modem in {0..3}; do
         iccid=$(sudo mmcli -i $modem 2>/dev/null | grep -oP 'iccid: \K.*')
         operator_name=$(sudo mmcli -i $modem 2>/dev/null | grep -oP 'operator name: \K.*')
-        
-        # Check if ICCID and operator name were successfully extracted
-        if [ -n "$iccid" ] && [ -n "$operator_name" ]; then
-            return 0
-        fi
+
+        # Fallback: check modem if operator_name not found
+        [ -z "$operator_name" ] && operator_name=$(sudo mmcli -m $modem 2>/dev/null | grep -oP 'operator name: \K.*')
+
+        # Exit if we got at least one piece of info
+        [ -n "$iccid" ] || [ -n "$operator_name" ] && return 0
     done
     return 1
 }
@@ -54,15 +55,12 @@ send_sms() {
 # Run the interactive script
 echo "Welcome! This script allows you to send an SMS using Gammu."
 
-# Extract ICCID and operator name
-if ! get_iccid_and_operator; then
-    echo "Error: unable to extract ICCID or operator name from any modem."
-    exit 1
-fi
+# Try to extract ICCID and operator name, but don't stop if it fails
+get_iccid_and_operator
 
-# Display ICCID and operator name
-echo "ICCID: $iccid"
-echo "Operator: $operator_name"
+# Show available info (even if partial or missing)
+echo "ICCID: ${iccid:-Unavailable}"
+echo "Operator: ${operator_name:-Unavailable}"
 
 # Ask the user to enter the message text
 get_message
@@ -77,7 +75,7 @@ echo "Destination number: $destination_number"
 
 # Ask for user confirmation before sending the SMS
 read -p "Do you want to proceed with sending the SMS? (Yes/No): " confirm
-confirm=$(echo "$confirm" | tr '[:upper:]' '[:lower:]')  # Convert the response to lowercase
+confirm=$(echo "$confirm" | tr '[:upper:]' '[:lower:]')
 
 if [[ $confirm == "y" || $confirm == "yes" ]]; then
     # Send the SMS and capture the response
@@ -89,7 +87,7 @@ if [[ $confirm == "y" || $confirm == "yes" ]]; then
     # Check if the sending was successful
     if echo "$response" | grep -q "OK"; then
         message_status="SMS sent successfully!"
-        message_reference=$(echo "$response" | awk -F'=' '{print $2}' | xargs) # Extract the reference number
+        message_reference=$(echo "$response" | awk -F'=' '{print $2}' | xargs)
     else
         message_status="Message not sent"
         message_reference=""
@@ -97,7 +95,7 @@ if [[ $confirm == "y" || $confirm == "yes" ]]; then
 
     # Write the details to the log
     {
-        echo "$(date '+%Y-%m-%d %H:%M:%S') - ICCID: $iccid - Operator name: $operator_name - Message text: $message - Destination number: $destination_number - $message_status ${message_reference:+Message reference=$message_reference}"
+        echo "$(date '+%Y-%m-%d %H:%M:%S') - ICCID: ${iccid:-Unavailable} - Operator name: ${operator_name:-Unavailable} - Message text: $message - Destination number: $destination_number - $message_status ${message_reference:+Message reference=$message_reference}"
     } >> sms_log.txt
 
     echo "$message_status"
