@@ -32,7 +32,7 @@ install_package() {
 }
 
 # Check for ModemManager and install if not present
-if ! command_exists "ModemManager"; then
+if ! command_exists "mmcli"; then
     install_package "modemmanager"
 else
     echo "modemmanager is already installed."
