@@ -49,7 +49,7 @@ get_iccid_and_operator() {
 
 # Function to send the SMS using Gammu
 send_sms() {
-    echo "$message" | sudo gammu --sendsms TEXT "$destination_number"
+    echo "$message" | sudo gammu --sendsms TEXT "$destination_number" -len 160
 }
 
 # Run the interactive script
